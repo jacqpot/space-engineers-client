@@ -1,7 +1,11 @@
 import React from "react";
-
+import PartsContainer from "./components/partsContainer";
 const App = () => {
-  return <div>hello world</div>;
+  return (
+    <div>
+      <PartsContainer />
+    </div>
+  );
 };
 
 export default App;
