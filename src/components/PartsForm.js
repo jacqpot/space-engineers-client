@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { addPart } from "../actions/partsActions";
+import { connect } from "react-redux";
 class PartsForm extends Component {
   state = {
     name: "",
@@ -11,6 +12,11 @@ class PartsForm extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addPart(this.state);
   };
   render() {
     return (
@@ -28,4 +34,4 @@ class PartsForm extends Component {
   }
 }
 
-export default PartsForm;
+export default connect(null, { addPart })(PartsForm);
