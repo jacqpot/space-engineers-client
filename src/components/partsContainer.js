@@ -13,8 +13,8 @@ class PartsContainer extends Component {
   render() {
     return (
       <div>
-        <PartsForm />
         <PartsList />
+        <PartsForm />
       </div>
     );
   }
