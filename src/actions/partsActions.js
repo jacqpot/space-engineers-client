@@ -1,7 +1,7 @@
 export const fetchParts = () => {
-  return (despatch) => {
+  return (dispatch) => {
     fetch("http://localhost:3000/components")
       .then((resp) => resp.json())
-      .then((parts) => console.log("fetchParts", parts));
+      .then((parts) => dispatch({ type: "FETCH_PARTS", payload: parts }));
   };
 };
