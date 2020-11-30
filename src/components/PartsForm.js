@@ -17,10 +17,11 @@ class PartsForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addPart(this.state);
+    this.setState({ name: "" });
   };
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label>Part Name:</label>
         <input
           type="text"

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchParts } from "../actions/partsActions";
 import PartsForm from "./PartsForm";
+import PartsList from "./PartsList";
 
 class PartsContainer extends Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class PartsContainer extends Component {
     return (
       <div>
         <PartsForm />
+        <PartsList />
       </div>
     );
   }
