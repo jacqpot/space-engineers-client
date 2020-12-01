@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addPart } from "../actions/partsActions";
+import { addPart } from "../../actions/partsActions";
 import { connect } from "react-redux";
 class PartsForm extends Component {
   state = {

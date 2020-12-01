@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addBlock } from "../actions/blockActions";
+import { addBlock } from "../../actions/blockActions";
 import { connect } from "react-redux";
 class BlockForm extends Component {
   state = {
@@ -35,6 +35,7 @@ class BlockForm extends Component {
           onChange={this.handleChange}
           name="name"
         />
+        <br />
         <label>Part type:</label>
         <input
           type="text"
@@ -42,6 +43,7 @@ class BlockForm extends Component {
           onChange={this.handleChange}
           name="category"
         />
+        <br />
         <label>Large or Small Grid:</label>
         <input
           type="text"
@@ -49,6 +51,7 @@ class BlockForm extends Component {
           onChange={this.handleChange}
           name="size"
         />
+        <br />
         <input type="submit" value="Create Block" />
       </form>
     );

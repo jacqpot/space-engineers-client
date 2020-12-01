@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchBlocks } from "../actions/blockActions";
+import { fetchBlocks } from "../../actions/blockActions";
+import BlockForm from "./BlockForm";
 
 import BlockList from "./BlockList";
 class blocksContainer extends Component {
@@ -11,6 +12,7 @@ class blocksContainer extends Component {
     return (
       <div>
         <BlockList />
+        <BlockForm />
       </div>
     );
   }
