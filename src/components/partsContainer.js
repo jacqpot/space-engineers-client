@@ -10,7 +10,7 @@ class PartsContainer extends Component {
     showList: false,
   };
 
-  handleClick = (e) => {
+  handlePartListDisplay = (e) => {
     e.preventDefault();
     this.state.showList === false
       ? this.setState({ showList: true })
@@ -25,8 +25,9 @@ class PartsContainer extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>Parts List</button>
-        <PartsList />
+        <button onClick={this.handlePartListDisplay}>Parts List</button>
+        <div></div>
+        {this.state.showList ? <PartsList /> : null}
         <PartsForm />
       </div>
     );
