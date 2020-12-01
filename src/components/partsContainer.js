@@ -6,6 +6,18 @@ import PartsForm from "./PartsForm";
 import PartsList from "./PartsList";
 
 class PartsContainer extends Component {
+  state = {
+    showList: false,
+  };
+
+  handleClick = (e) => {
+    e.preventDefault();
+    this.state.showList === false
+      ? this.setState({ showList: true })
+      : this.setState({ showList: false });
+    console.log(this.state);
+  };
+
   componentDidMount() {
     this.props.fetchParts();
   }
@@ -13,6 +25,7 @@ class PartsContainer extends Component {
   render() {
     return (
       <div>
+        <button onClick={this.handleClick}>Parts List</button>
         <PartsList />
         <PartsForm />
       </div>
