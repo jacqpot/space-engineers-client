@@ -8,6 +8,7 @@ import PartsList from "./PartsList";
 class PartsContainer extends Component {
   state = {
     showList: false,
+    showForm: false,
   };
 
   handlePartListDisplay = (e) => {
@@ -15,7 +16,12 @@ class PartsContainer extends Component {
     this.state.showList === false
       ? this.setState({ showList: true })
       : this.setState({ showList: false });
-    console.log(this.state);
+  };
+  handlePartFormDisplay = (e) => {
+    e.preventDefault();
+    this.state.showForm === false
+      ? this.setState({ showForm: true })
+      : this.setState({ showForm: false });
   };
 
   componentDidMount() {
@@ -26,9 +32,9 @@ class PartsContainer extends Component {
     return (
       <div>
         <button onClick={this.handlePartListDisplay}>Parts List</button>
-        <div></div>
         {this.state.showList ? <PartsList /> : null}
-        <PartsForm />
+        <button onClick={this.handlePartFormDisplay}>Part Form</button>
+        {this.state.showForm ? <PartsForm /> : null}
       </div>
     );
   }
