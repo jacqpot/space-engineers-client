@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { addBlock } from "../../actions/blockActions";
 import { connect } from "react-redux";
-import Select from "react-select";
 class BlockForm extends Component {
   state = {
     name: "",
@@ -9,56 +8,15 @@ class BlockForm extends Component {
     size: "",
   };
 
-  typeOptions = [
-    { value: "Armor", label: "Armor" },
-    { value: "Automation", label: "Automation" },
-    { value: "Conveyor / Cargo", label: "Conveyor / Cargo" },
-    { value: "Cockpit / Control", label: "Cockpit / Control" },
-    { value: "Communications", label: "Communications" },
-    { value: "Decorative Blocks DLC", label: "Decorative Blocks DLC" },
-    { value: "Decoorative Blocks 2 DLC", label: "Decoorative Blocks 2 DLC" },
-    { value: "Doors", label: "Doors" },
-    { value: "Economy", label: "Economy" },
-    { value: "Frostbite DLC", label: "Frostbite DLC" },
-    { value: "Gravity", label: "Gravity" },
-    { value: "Interiors", label: "Interiors" },
-    { value: "LCD Panels", label: "LCD Panels" },
-    { value: "Lights", label: "Lights" },
-    { value: "Mechanical", label: "Mechanical" },
-    { value: "Medical", label: "Medical" },
-    { value: "Production", label: "Production" },
-    { value: "Power", label: "Power" },
-    { value: "Tools", label: "Tools" },
-    { value: "Thrusters", label: "Thrusters" },
-    { value: "Utility", label: "Utility" },
-    { value: "Weapons", label: "Weapons" },
-    { value: "Wheels", label: "Wheels" },
-    { value: "Windows", label: "Windows" },
-  ];
+  typeOptions = [];
 
-  sizeOptions = [
-    { value: "Large", label: "Large" },
-    { value: "Either", label: "Either" },
-    { value: "Small", label: "Small" },
-  ];
+  sizeOptions = [];
 
   handleChange = (e) => {
     const { name, value } = e.target;
 
     this.setState({
       [name]: value,
-    });
-  };
-  handleCategoryChange = (value) => {
-    console.log(value);
-    this.setState({
-      category: value,
-    });
-  };
-  handleSizeChange = (value) => {
-    console.log(value);
-    this.setState({
-      size: value,
     });
   };
 
@@ -74,7 +32,7 @@ class BlockForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Block Name:</label>
+        <label>Block Name: </label>
         <input
           type="text"
           value={this.state.name}
@@ -82,19 +40,54 @@ class BlockForm extends Component {
           name="name"
         />
         <br />
-        <Select
-          options={this.typeOptions}
-          onChange={this.handleCategoryChange}
-          value={this.state.category}
-          name="category"
-        />
+        <label>Block Type: </label>
+
+        <select value={this.state.category} onChange={this.handleChange}>
+          <option defaultValue=""> </option>
+          <option value="Armor"> Armor</option>
+          <option value="Automation"> Automation</option>
+          <option value="Conveyor / Cargo"> Conveyor / Cargo</option>
+          <option value="Cockpit / Control"> Cockpit / Control</option>
+          <option value="Communications"> Communications</option>
+          <option value="Decorative Blocks DLC"> Decorative Blocks DLC</option>
+          <option value="Decoorative Blocks 2 DLC">
+            {" "}
+            Decorative Blocks 2 DLC
+          </option>
+          <option value="Doors"> Doors</option>
+          <option value="Economy"> Economy</option>
+          <option value="Frostbite DLC"> Frostbite DLC</option>
+          <option value="Gravity"> Gravity</option>
+          <option value="Interiors"> Interiors</option>
+          <option value="LCD Panels"> LCD Panels</option>
+          <option value="Lights"> Lights</option>
+          <option value="Mechanical"> Mechanical</option>
+          <option value="Medical"> Medical</option>
+          <option value="Production"> Production</option>
+          <option value="Power"> Power</option>
+          <option value="Tools"> Tools</option>
+          <option value="Thrusters"> Thrusters</option>
+          <option value="Utility"> Utility</option>
+          <option value="Weapons"> Weapons</option>
+          <option value="Wheels"> Wheels</option>
+          <option value="Windows"> Windows</option>
+        </select>
         <br />
-        <Select
-          options={this.sizeOptions}
-          onChange={this.handleSizeChange}
+        <label>Block Size: </label>
+
+        <select
+          defaultValue=""
           value={this.state.size}
-          name="size"
-        />
+          onChange={this.handleChange}
+        >
+          {" "}
+          <option defaultValue=""> </option>
+          <option value="Large"> Large</option>
+          <option value="Either"> Either</option>
+          <option value="Small"> Small</option>
+        </select>
+
+        <br />
 
         <br />
         <input type="submit" value="Create Block" />
