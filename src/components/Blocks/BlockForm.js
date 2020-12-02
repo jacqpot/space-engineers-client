@@ -49,6 +49,18 @@ class BlockForm extends Component {
       [name]: value,
     });
   };
+  handleCategoryChange = (value) => {
+    console.log(value);
+    this.setState({
+      category: value,
+    });
+  };
+  handleSizeChange = (value) => {
+    console.log(value);
+    this.setState({
+      size: value,
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -70,9 +82,19 @@ class BlockForm extends Component {
           name="name"
         />
         <br />
-        <Select options={this.typeOptions} />
+        <Select
+          options={this.typeOptions}
+          onChange={this.handleCategoryChange}
+          value={this.state.category}
+          name="category"
+        />
         <br />
-        <Select options={this.sizeOptions} />
+        <Select
+          options={this.sizeOptions}
+          onChange={this.handleSizeChange}
+          value={this.state.size}
+          name="size"
+        />
 
         <br />
         <input type="submit" value="Create Block" />
