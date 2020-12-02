@@ -8,6 +8,33 @@ class BlockForm extends Component {
     size: "",
   };
 
+  typeOptions = [
+    { value: "Armor", label: "Armor" },
+    { value: "Automation", label: "Automation" },
+    { value: "Conveyor / Cargo", label: "Conveyor / Cargo" },
+    { value: "Cockpit / Control", label: "Cockpit / Control" },
+    { value: "Communications", label: "Communications" },
+    { value: "Decorative Blocks DLC", label: "Decorative Blocks DLC" },
+    { value: "Decoorative Blocks 2 DLC", label: "Decoorative Blocks 2 DLC" },
+    { value: "Doors", label: "Doors" },
+    { value: "Economy", label: "Economy" },
+    { value: "Frostbite DLC", label: "Frostbite DLC" },
+    { value: "Gravity", label: "Gravity" },
+    { value: "Interiors", label: "Interiors" },
+    { value: "LCD Panels", label: "LCD Panels" },
+    { value: "Lights", label: "Lights" },
+    { value: "Mechanical", label: "Mechanical" },
+    { value: "Medical", label: "Medical" },
+    { value: "Production", label: "Production" },
+    { value: "Power", label: "Power" },
+    { value: "Tools", label: "Tools" },
+    { value: "Thrusters", label: "Thrusters" },
+    { value: "Utility", label: "Utility" },
+    { value: "Weapons", label: "Weapons" },
+    { value: "Wheels", label: "Wheels" },
+    { value: "Windows", label: "Windows" },
+  ];
+
   handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -28,7 +55,7 @@ class BlockForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Part Name:</label>
+        <label>Block Name:</label>
         <input
           type="text"
           value={this.state.name}
@@ -36,7 +63,7 @@ class BlockForm extends Component {
           name="name"
         />
         <br />
-        <label>Part type:</label>
+        <label>Block type:</label>
         <input
           type="text"
           value={this.state.category}
