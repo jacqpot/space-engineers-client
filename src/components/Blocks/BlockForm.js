@@ -18,7 +18,7 @@ class BlockForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addPart(this.state);
+    this.props.addBlock(this.state);
     this.setState({
       name: "",
       category: "",
