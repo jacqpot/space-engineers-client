@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { addBlock } from "../../actions/blockActions";
 import { connect } from "react-redux";
+import Select from "react-select";
 class BlockForm extends Component {
   state = {
     name: "",
@@ -35,6 +36,12 @@ class BlockForm extends Component {
     { value: "Windows", label: "Windows" },
   ];
 
+  sizeOptions = [
+    { value: "Large", label: "Large" },
+    { value: "Either", label: "Either" },
+    { value: "Small", label: "Small" },
+  ];
+
   handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -63,21 +70,10 @@ class BlockForm extends Component {
           name="name"
         />
         <br />
-        <label>Block type:</label>
-        <input
-          type="text"
-          value={this.state.category}
-          onChange={this.handleChange}
-          name="category"
-        />
+        <Select options={this.typeOptions} />
         <br />
-        <label>Large or Small Grid:</label>
-        <input
-          type="text"
-          value={this.state.size}
-          onChange={this.handleChange}
-          name="size"
-        />
+        <Select options={this.sizeOptions} />
+
         <br />
         <input type="submit" value="Create Block" />
       </form>
